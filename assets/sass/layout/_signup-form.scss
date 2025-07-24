@@ -8,20 +8,21 @@
 
 	#signup-form {
 		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'column');
 		position: relative;
+		max-width: 25em;
+		margin: 0 auto;
 
 		input[type="text"],
 		input[type="password"],
-		input[type="email"] {
-			width: 18em;
+		input[type="email"],
+		textarea {
+			width: 100%;
+			margin-bottom: 1em;
 		}
 
-		> * {
-			margin: 0 0 0 1em;
-		}
-
-		> :first-child {
-			margin: 0 0 0 0;
+		input[type="submit"] {
+			margin-bottom: 0;
 		}
 
 		@include breakpoint('<=xsmall') {
