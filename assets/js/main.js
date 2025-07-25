@@ -73,7 +73,7 @@
 				// Bail if we only have a single BG or the client doesn't support transitions.
 					if ($bgs.length == 1
 					||	!canUse('transition'))
-						return;
+					return;
 
 				window.setInterval(function() {
 
@@ -84,15 +84,20 @@
 						if (pos >= $bgs.length)
 							pos = 0;
 
-					// Swap top images.
-						$bgs[lastPos].classList.remove('top');
+					// Pre-load and prepare next image
 						$bgs[pos].classList.add('visible');
-						$bgs[pos].classList.add('top');
-
-					// Hide last image after a short delay.
+						
+					// Small delay to ensure next image is loaded
 						window.setTimeout(function() {
-							$bgs[lastPos].classList.remove('visible');
-						}, settings.delay / 2);
+							// Swap top images.
+							$bgs[lastPos].classList.remove('top');
+							$bgs[pos].classList.add('top');
+							
+							// Hide last image after transition completes
+							window.setTimeout(function() {
+								$bgs[lastPos].classList.remove('visible');
+							}, 3000); // Wait for CSS transition to complete
+						}, 100);
 
 				}, settings.delay);
 

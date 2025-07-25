@@ -60,15 +60,35 @@
 			left: 2em;
 		}
 
-		@include breakpoint('<=xxsmall') {
-			bottom: 1.25em;
-			left: 1.25em;
+	@include breakpoint('<=xxsmall') {
+		bottom: 1.25em;
+		left: 1.25em;
+		right: 1.25em;
+		text-align: center;
+		
+		.icons {
+			li {
+				display: inline-block;
+				margin: 0 0.5em;
+			}
 		}
+		
+		.copyright {
+			font-size: 0.7em;
+			li {
+				display: block;
+				border-left: none;
+				margin: 0.5em 0 0 0;
+				padding: 0;
+			}
+		}
+	}
 
-		@include breakpoint('short') {
-			bottom: auto;
-			left: auto;
-			margin: (_size(element-margin) * 0.5) 0 0 0;
-			position: relative;
-		}
+	@include breakpoint('short') {
+		bottom: auto;
+		left: auto;
+		margin: (_size(element-margin) * 0.5) 0 0 0;
+		position: relative;
+		text-align: center;
+	}
 	}

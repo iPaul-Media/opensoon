@@ -74,6 +74,8 @@
 		}
 
 		@include breakpoint('<=xxsmall') {
-			padding: 5em 1.25em 1.25em 1.25em;
+			padding: 3em 1.25em 5.5em 1.25em;
+			min-height: 100vh;
+			@include vendor('justify-content', 'space-between');
 		}
 	}

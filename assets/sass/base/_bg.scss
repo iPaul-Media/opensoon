@@ -19,13 +19,14 @@
 		div {
 			@include vendor('transition', ('opacity #{_duration(bg-transition)} ease'));
 			background-size: cover;
+			background-position: center center;
 			height: 100%;
 			left: 0;
 			opacity: 0;
 			position: absolute;
 			top: 0;
 			visibility: hidden;
-			width: 150%;
+			width: 120%;
 
 			&.visible {
 				@include vendor('animation', 'bg #{_duration(bg-slide)} linear infinite');
@@ -43,6 +44,15 @@
 
 				@include breakpoint('<=small') {
 					@include vendor('animation', 'bg #{_duration(bg-slide) * 0.4} linear infinite');
+					width: 110%;
+				}
+				
+				@include breakpoint('<=xxsmall') {
+					@include vendor('animation', 'none');
+					position: fixed;
+					width: 100%;
+					background-position: center center;
+					background-size: cover;
 				}
 			}
 
